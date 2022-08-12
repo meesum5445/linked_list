@@ -8,9 +8,7 @@ class linkedlist:
     self.head=None
   def clear(self):
       for i in range(self.count()):
-          if self.head is None:
-                pass
-          elif self.count()==1:
+          if self.count()<=1:
                 self.head=None 
           else:
                 temp=self.head
@@ -89,10 +87,11 @@ l1=linkedlist()
 l1.append(1)
 l1.append(2)
 l1.append(3)
+
 print(l1.count())
 l1.display()
 
 l1.clear()
 
-print(l1.count())
+print("\n",l1.count())
 l1.display()
