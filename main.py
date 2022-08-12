@@ -6,6 +6,20 @@ class node:
 class linkedlist:
   def __init__(self):
     self.head=None
+  def clear(self):
+      for i in range(self.count()):
+          if self.head is None:
+                pass
+          elif self.count()==1:
+                self.head=None 
+          else:
+                temp=self.head
+                i=0
+                while i<self.count()-2:
+                    i=i+1
+                    temp=temp.next
+                del temp.next
+                temp.next=None
   def append(self,data):
     n=node(data)
     if self.head is None:
@@ -72,10 +86,13 @@ class linkedlist:
        temp=temp.next
       
 l1=linkedlist()
-for i in range(5,10):
-  l1.append(i)
-  
-  
+l1.append(1)
+l1.append(2)
+l1.append(3)
 print(l1.count())
-print(l1.index(44))
+l1.display()
+
+l1.clear()
+
+print(l1.count())
 l1.display()
