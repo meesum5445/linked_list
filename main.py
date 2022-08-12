@@ -19,7 +19,7 @@ class linkedlist:
         temp=temp.next
         
   def insert(self,index,data):
-    if index>=self.len():
+    if index>=self.count():
       self.append(data)
     else:
       n=node(data)
@@ -39,7 +39,7 @@ class linkedlist:
         self.head=n
       
       
-  def len(self):
+  def count(self):
     if self.head is None:
       return 0
     else:
@@ -48,7 +48,20 @@ class linkedlist:
       while temp:
         temp=temp.next
         len=len+1
-      return len      
+      return len   
+     
+  def index(self,data):
+      temp=self.head
+      for index in range(self.count()):
+            if data == temp.data:
+                value_in_list = True
+                break
+            temp=temp.next
+            value_in_list = False
+      if value_in_list:
+          return index
+      else:
+          print("\nvalue is not in the list.")
   def display(self):
     if self.head is None:
       print("linked list is empty")
@@ -59,7 +72,10 @@ class linkedlist:
        temp=temp.next
       
 l1=linkedlist()
-for i in range(10):
+for i in range(5,10):
   l1.append(i)
-l1.insert(0,70)
+  
+  
+print(l1.count())
+print(l1.index(44))
 l1.display()
