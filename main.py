@@ -123,13 +123,18 @@ class linkedlist:
       while temp:
           self.append(temp.data)
           temp=temp.next
+  def combine(self,list):
+      temp=self.head
+      for i in range(self.count()-1):
+        temp=temp.next
+      temp.next=list.head
 l1=linkedlist()
-for i in range(10):
+l2=linkedlist()
+for i in range(5):
     l1.append(i)
-
-
+for i in range(5,10):
+    l2.append(i)
 
 l1.display()
-l1.pop(5)
 print("\n")
-l1.display()
+l2.display()
