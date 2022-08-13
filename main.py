@@ -98,13 +98,25 @@ class linkedlist:
       while temp:
        print(temp.data,"-->",end="")
        temp=temp.next
-      
+  def extend(self,list):
+      list_duplicate=list.copy()
+      temp=list_duplicate.head
+      while temp:
+          self.append(temp.data)
+          temp=temp.next
 l1=linkedlist()
 l1.append(1)
 l1.append(2)
 l1.append(3)
 
+l2=linkedlist()
+l2.append(77)
+l2.append(88)
+l2.append(99)
+
 l1.display()
-l1.popstart()
 print("\n")
-l1.display()
+l2.display()
+print("\n")
+l2.extend(l2)
+l2.display()
