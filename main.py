@@ -28,6 +28,25 @@ class linkedlist:
           temp=self.head
           self.head=temp.next
           del temp
+  def pop(self,index):
+      if self.count()==0:
+          pass
+      elif index>=self.count():
+          self.popend()
+      elif index==0:
+          self.popstart()
+      else:
+          temp=self.head
+          for i in range(index+1):
+              temp=temp.next
+          node=temp
+
+          temp=self.head
+          for i in range(index-1):
+              temp=temp.next
+    
+          del temp.next
+          temp.next=node
   def copy(self):
       list=linkedlist()
       temp=self.head
@@ -105,18 +124,12 @@ class linkedlist:
           self.append(temp.data)
           temp=temp.next
 l1=linkedlist()
-l1.append(1)
-l1.append(2)
-l1.append(3)
+for i in range(10):
+    l1.append(i)
 
-l2=linkedlist()
-l2.append(77)
-l2.append(88)
-l2.append(99)
+
 
 l1.display()
+l1.pop(5)
 print("\n")
-l2.display()
-print("\n")
-l2.extend(l2)
-l2.display()
+l1.display()
