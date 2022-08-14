@@ -183,21 +183,34 @@ class linkedlist:
       else:
           while temp1 or temp2:
               if temp1:
-                if temp1.data<=temp2.data:
-                      merged_list.append(temp1.data)
-                      temp1=temp1.next
+                if temp2 is None:
+                    while temp1:
+                        merged_list.append(temp1.data)
+                        temp1=temp1.next
+                    break
+                else:
+                    if temp1.data<=temp2.data:
+                        merged_list.append(temp1.data)
+                        temp1=temp1.next
+                    else:
+                        merged_list.append(temp2.data)
+                        temp2=temp2.next
               else:
-                  if temp2:
-                      merged_list.append(temp2.data)
-                      temp2=temp2.next
+                  while temp2:
+                     merged_list.append(temp1.data)
+                  break
           return merged_list
 l1=linkedlist()
 l2=linkedlist()
 l1.append(15)
-
-
-l2.append(30)
-
+l1.append(25)
+l1.append(10)
+l1.append(5)
+l1.append(20)
+l2.append(1)
+l2.append(4)
+l2.append(7)
+l2.append(17)
 l1.display()
 print('\n')
 l2.display()
