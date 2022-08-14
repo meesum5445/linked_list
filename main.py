@@ -99,6 +99,11 @@ class linkedlist:
         temp=temp.next
         len=len+1
       return len   
+  def value(self,index):
+      temp=self.head
+      for i in range(index):
+          temp=temp.next
+      return temp.data
   def index(self,data):
       temp=self.head
       for index in range(self.count()):
@@ -138,27 +143,41 @@ class linkedlist:
           self.insert(0,temp.data)
           temp=temp.next
   def swap(self,index1,index2):
-      temp1=self.head
-      for i in range(index1):
-          temp1=temp1.next
-      temp_val=temp1.data
-      
-      temp2=self.head
-      for i in range(index2):
-          temp2=temp2.next
-      
-      temp1.data=temp2.data
-      temp2.data=temp_val
-#   def sort(self):
-#       for i in range():
+      if self.head is None:
+          pass
+      elif index1>=self.count() and index2>=self.count():
+          pass
+    #   elif index1>=self.count():             # (this piece of code is for if 
+    #       self.swap(self.count()-1,index2)   # index value is greater than 
+    #   elif index2>=self.count():             # number of nodes of list and greater
+    #       self.swap(index1,self.count()-1)   # index will be considered as last index)
+      else:
+          temp1=self.head
+          for i in range(index1):
+              temp1=temp1.next
+          temp_val=temp1.data
+          
+          temp2=self.head
+          for i in range(index2):
+              temp2=temp2.next
+          
+          temp1.data=temp2.data
+          temp2.data=temp_val
+  def sort(self):
+      for i in range(self.count()):
+          for j in range(self.count()-1-i):
+              if self.value(j)>self.value(j+1):
+                  self.swap(j,j+1)
 l1=linkedlist()
 l2=linkedlist()
-for i in range(5):
-    l1.append(i)
-for i in range(5,10):
-    l2.append(i)
+l1.append(15)
+l1.append(25)
+l1.append(10)
+l1.append(5)
+l1.append(20)
 
-l2.display()
-l2.swap(0,4)
+l1.display()
 print('\n')
-l2.display()
+
+l1.sort()
+l1.display()
