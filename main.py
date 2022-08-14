@@ -47,6 +47,8 @@ class linkedlist:
     
           del temp.next
           temp.next=node
+  def remove(self,data):
+      self.pop(self.index(data))
   def copy(self):
       list=linkedlist()
       temp=self.head
@@ -143,6 +145,6 @@ for i in range(5,10):
     l2.append(i)
 
 l2.display()
-l2.reverse()
+l2.remove(7)
 print('\n')
 l2.display()
