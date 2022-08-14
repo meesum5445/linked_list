@@ -168,16 +168,39 @@ class linkedlist:
           for j in range(self.count()-1-i):
               if self.value(j)>self.value(j+1):
                   self.swap(j,j+1)
+  def mergesort(self,list):
+      self.sort()
+      list.sort()
+      temp1=self.head
+      temp2=list.head
+      merged_list=linkedlist()
+      if temp1 is None and temp2 is None:
+          return linkedlist()
+      elif temp1 is None:
+          return list
+      elif temp2 is None:
+          return self
+      else:
+          while temp1 or temp2:
+              if temp1:
+                if temp1.data<=temp2.data:
+                      merged_list.append(temp1.data)
+                      temp1=temp1.next
+              else:
+                  if temp2:
+                      merged_list.append(temp2.data)
+                      temp2=temp2.next
+          return merged_list
 l1=linkedlist()
 l2=linkedlist()
 l1.append(15)
-l1.append(25)
-l1.append(10)
-l1.append(5)
-l1.append(20)
+
+
+l2.append(30)
 
 l1.display()
 print('\n')
-
-l1.sort()
-l1.display()
+l2.display()
+print('\n')
+l3=linkedlist.mergesort(l1,l2)
+l3.display()
