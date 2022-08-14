@@ -137,6 +137,20 @@ class linkedlist:
       while temp:
           self.insert(0,temp.data)
           temp=temp.next
+  def swap(self,index1,index2):
+      temp1=self.head
+      for i in range(index1):
+          temp1=temp1.next
+      temp_val=temp1.data
+      
+      temp2=self.head
+      for i in range(index2):
+          temp2=temp2.next
+      
+      temp1.data=temp2.data
+      temp2.data=temp_val
+#   def sort(self):
+#       for i in range():
 l1=linkedlist()
 l2=linkedlist()
 for i in range(5):
@@ -145,6 +159,6 @@ for i in range(5,10):
     l2.append(i)
 
 l2.display()
-l2.remove(7)
+l2.swap(0,4)
 print('\n')
 l2.display()
