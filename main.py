@@ -128,6 +128,13 @@ class linkedlist:
       for i in range(self.count()-1):
         temp=temp.next
       temp.next=list.head
+  def reverse(self):
+      duplicate=self.copy()
+      temp=duplicate.head
+      self.clear()
+      while temp:
+          self.insert(0,temp.data)
+          temp=temp.next
 l1=linkedlist()
 l2=linkedlist()
 for i in range(5):
@@ -135,6 +142,7 @@ for i in range(5):
 for i in range(5,10):
     l2.append(i)
 
-l1.display()
-print("\n")
+l2.display()
+l2.reverse()
+print('\n')
 l2.display()
