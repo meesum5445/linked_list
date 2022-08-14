@@ -131,10 +131,14 @@ class linkedlist:
           self.append(temp.data)
           temp=temp.next
   def combine(self,list):
-      temp=self.head
-      for i in range(self.count()-1):
+      combined_list=self.copy()
+      
+      temp=combined_list.head
+      for i in range(combined_list.count()-1):
         temp=temp.next
       temp.next=list.head
+      
+      return combined_list
   def reverse(self):
       duplicate=self.copy()
       temp=duplicate.head
@@ -215,5 +219,5 @@ l1.display()
 print('\n')
 l2.display()
 print('\n')
-l3=linkedlist.mergesort(l1,l2)
+l3=linkedlist.combine(l2,l1)
 l3.display()
